@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar"
 import Techs from "./components/techStacks/Techs"
 
 
+
 function App() {
 
   return (
