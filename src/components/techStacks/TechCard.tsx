@@ -1,13 +1,25 @@
 import { CiStar } from "react-icons/ci";
 import type { ITechs } from "../../types/techs";
+import type { Dispatch, SetStateAction } from "react";
 
 interface ITechCardsProps {
   techCard: ITechs;
+  stack: ITechs[],
+  setStack: Dispatch<SetStateAction<ITechs[]>>
 }
 
-const TechCard = ({ techCard }: ITechCardsProps) => {
+const TechCard = ({ techCard, stack, setStack }: ITechCardsProps) => {
+   
+  const handleStack= () => {
+    // console.log(stack);
+    const isExist = stack.some((item) => item.id === techCard.id); 
+
+    if (!isExist) {
+      setStack((prevStack) => [...prevStack, techCard])
+    }
+  }
+
   return (
-    
     <div className="card bg-base-100 w-full shadow-sm pt-6 border border-gray-100 rounded-2xl">
       <figure className="flex justify-between px-6">
         <img
@@ -23,7 +35,7 @@ const TechCard = ({ techCard }: ITechCardsProps) => {
       <div className="card-body p-6">
         <h2 className="card-title font-bold text-xl">{techCard.title}</h2>
         <div className="border-b border-gray-100 pb-4">
-          <p className="text-sm text-gray-500 line-clamp-2 min-h-[40px]">
+          <p className="text-sm text-gray-500 line-clamp-3 min-h-[40px]">
             {techCard.description}
           </p>
         </div>
@@ -40,7 +52,9 @@ const TechCard = ({ techCard }: ITechCardsProps) => {
         </div>
 
         <div className="card-actions mt-4">
-          <button className="btn btn-neutral btn-block rounded-xl">
+          <button 
+          onClick={() => handleStack()}
+          className="btn btn-neutral btn-block rounded-xl">
             Add to Stack
           </button>
         </div>

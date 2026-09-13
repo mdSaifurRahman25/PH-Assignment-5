@@ -1,12 +1,15 @@
-import { use } from "react";
+import { use, type Dispatch, type SetStateAction } from "react";
 import type { ITechs } from "../../types/techs";
 import TechCard from "./TechCard";
+import Stacks from "./Stacks";
 
 interface TechsProps {
-    techsPromise: Promise<ITechs[]>;
+    techsPromise: Promise<ITechs[]>,
+    stack: ITechs[],
+    setStack: Dispatch<SetStateAction<ITechs[]>>
 }
 
-const Techs = ({ techsPromise }: TechsProps) => {
+const Techs = ({ techsPromise, stack, setStack }: TechsProps) => {
     const techs = use(techsPromise);
 
     return (
@@ -23,7 +26,12 @@ const Techs = ({ techsPromise }: TechsProps) => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-8">
                     {techs.map((tech) => (
-                        <TechCard key={tech.id} techCard={tech} />
+                        <TechCard
+                            key={tech.id}
+                            techCard={tech}
+                            stack={stack}
+                            setStack={setStack}
+                        />
                     ))}
                 </div>
             </div>
@@ -33,7 +41,11 @@ const Techs = ({ techsPromise }: TechsProps) => {
                 <h3 className="text-xl font-bold mb-1">Your Stack</h3>
                 <p className="text-sm text-gray-400 mb-6">No technologies selected yet.</p>
                 <div className="border border-dashed border-gray-200 rounded-xl p-8 text-center text-gray-400 text-sm">
-                    Your stack is empty.
+                        <Stacks
+                        stack={stack} 
+                        setStack={setStack} 
+                        />
+                    
                 </div>
             </div>
         </div>

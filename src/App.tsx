@@ -14,12 +14,18 @@ const techPromise = async (): Promise<ITechs[]> => {
 function App() { 
   const [techsPromise] = useState<Promise<ITechs[]>>(() => techPromise()); 
 
+  const [stack, setStack] = useState<ITechs[]>([])
+
   return (
     <>
       <Navbar />
       <Banner />
       <Suspense fallback={<h2>Loading...</h2>}>
-        <Techs techsPromise={techsPromise} />
+        <Techs 
+        techsPromise={techsPromise} 
+        stack={stack}
+        setStack={setStack}
+        />
       </Suspense>
       <Footer />
     </>
