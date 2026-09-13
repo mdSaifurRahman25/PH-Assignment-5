@@ -54,7 +54,7 @@ const Stacks = ({ stack, setStack }: StacksProps) => {
             <div className="border w-full rounded-full p-2 mt-10 cursor-pointer">
                 <button 
                 onClick={() => handleAllRemove()}
-                className="text-xl font-bold text-red-500">
+                className="text-xl font-bold text-red-500 cursor-pointer">
                     Remove All</button>
             </div>
         </div>

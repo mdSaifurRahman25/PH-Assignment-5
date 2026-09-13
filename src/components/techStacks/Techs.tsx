@@ -38,14 +38,16 @@ const Techs = ({ techsPromise, stack, setStack }: TechsProps) => {
 
 
             <div className="col-span-12 lg:col-span-4 bg-white border border-gray-100 p-6 rounded-2xl shadow-sm sticky top-6">
-                <h3 className="text-xl font-bold mb-1">Your Stack</h3>
-                <p className="text-sm text-gray-400 mb-6"> {stack.length} technologies selected yet.</p>
+                <div className="">
+                    <h3 className="text-xl font-bold mb-1">Your Stack</h3>
+                    <p className="text-sm text-gray-400 mb-6"> {stack.length} technologies selected yet.</p>
+                </div>
                 <div className="border border-dashed border-gray-200 rounded-xl p-8 text-center text-gray-400 text-sm">
-                        <Stacks
-                        stack={stack} 
-                        setStack={setStack} 
-                        />
-                    
+                    <Stacks
+                        stack={stack}
+                        setStack={setStack}
+                    />
+
                 </div>
             </div>
         </div>
