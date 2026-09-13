@@ -2,7 +2,7 @@ import Logo from '../assets/logo-text.png'
 
 const Navbar = () => {
     return (
-        <div className=' border-b border-gray-200 py-[20px]'>
+        <div className=' border-b border-gray-200 py-[15px] sticky top-0 z-50 bg-gray-50'>
             <div className='container mx-auto flex justify-between items-center'>
                 
                 {/* Logo */}

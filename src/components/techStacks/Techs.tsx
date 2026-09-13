@@ -3,27 +3,41 @@ import type { ITechs } from "../../types/techs";
 import TechCard from "./TechCard";
 
 interface TechsProps {
-    techsPromise: Promise<ITechs[]>,
-
+    techsPromise: Promise<ITechs[]>;
 }
-const Techs = ({techsPromise}: TechsProps  ) => {
-    // console.log(techsPromise);
-    const techs = use(techsPromise); 
-   
+
+const Techs = ({ techsPromise }: TechsProps) => {
+    const techs = use(techsPromise);
+
     return (
-        <div className="container mx-auto">
-            <h2 className="text-4xl font-bold">Explore the <span className="text-[#CE4EB6] ">Technologies</span> </h2>
-            <p className="text-2xl">Pick one technology per category to build your ideal stack.</p>
-           {/* Technologies List */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 my-10">
-                {techs.map(tech => {
-                return (
-                    <TechCard key={tech.id} techCard={tech} />
-                )
-            })}
+        <div className="container mx-auto grid grid-cols-12 gap-8 items-start my-10">
+
+            <div className="col-span-12 lg:col-span-8">
+                <h2 className="text-4xl font-bold">
+                    Explore the <span className="text-[#CE4EB6]">Technologies</span>
+                </h2>
+                <p className="text-gray-500 text-lg mt-2">
+                    Pick one technology per category to build your ideal stack.
+                </p>
+
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-8">
+                    {techs.map((tech) => (
+                        <TechCard key={tech.id} techCard={tech} />
+                    ))}
+                </div>
+            </div>
+
+
+            <div className="col-span-12 lg:col-span-4 bg-white border border-gray-100 p-6 rounded-2xl shadow-sm sticky top-6">
+                <h3 className="text-xl font-bold mb-1">Your Stack</h3>
+                <p className="text-sm text-gray-400 mb-6">No technologies selected yet.</p>
+                <div className="border border-dashed border-gray-200 rounded-xl p-8 text-center text-gray-400 text-sm">
+                    Your stack is empty.
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Techs
+export default Techs;
