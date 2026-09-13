@@ -43,7 +43,7 @@ Dev Stack is an interactive web application designed for developers to explore, 
 ---
 
 ### 4. What does the `useEffect` hook do, and why did you need it to load the JSON data?
-**Answer:** The `useEffect` hook handles side effects in React components, such as data fetching, subscriptions, or DOM manipulations. In this project, `useEffect` was used to trigger an asynchronous `fetch` request that loaded technology data from the local JSON file when the component first mounted.
+**Answer:** The `useEffect` hook handles side effects in React components, such as data fetching, subscriptions, or DOM manipulations. In this project, use() hook (react 19 update) has been used instead of  `useEffect` to trigger the asynchronous `fetch` request that loaded technology data from the local JSON file when the component first mounted.
 
 ---
 
