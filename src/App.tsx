@@ -20,7 +20,7 @@ function App() {
     <>
       <Navbar />
       <Banner />
-      <Suspense fallback={<h2>Loading...</h2>}>
+      <Suspense fallback={<h2>Loading... Please Wait</h2>}>
         <Techs 
         techsPromise={techsPromise} 
         stack={stack}
