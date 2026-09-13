@@ -1,6 +1,8 @@
 import { CiStar } from "react-icons/ci";
 import type { ITechs } from "../../types/techs";
-import type { Dispatch, SetStateAction } from "react";
+import { useState, type Dispatch, type SetStateAction } from "react";
+import { toast } from "react-toastify";
+import { FaCheck } from "react-icons/fa";
 
 interface ITechCardsProps {
   techCard: ITechs;
@@ -9,6 +11,8 @@ interface ITechCardsProps {
 }
 
 const TechCard = ({ techCard, stack, setStack }: ITechCardsProps) => {
+
+  const [isSelected, setIsSelected] = useState(false); 
    
   const handleStack= () => {
     // console.log(stack);
@@ -17,6 +21,8 @@ const TechCard = ({ techCard, stack, setStack }: ITechCardsProps) => {
     if (!isExist) {
       setStack((prevStack) => [...prevStack, techCard])
     }
+    toast.success(`${techCard.title} has been added Successfully.`); 
+    setIsSelected(true); 
   }
 
   return (
@@ -54,8 +60,13 @@ const TechCard = ({ techCard, stack, setStack }: ITechCardsProps) => {
         <div className="card-actions mt-4">
           <button 
           onClick={() => handleStack()}
+          disabled={isSelected === true ? true : false}
           className="btn btn-neutral btn-block rounded-xl">
-            Add to Stack
+            {isSelected ? (
+              <span className="flex items-center gap-1.5 text-red-600">
+                <FaCheck className="text-xs" /> Added to Stack
+              </span>
+            ) : ('Add to Stack') } 
           </button>
         </div>
       </div>

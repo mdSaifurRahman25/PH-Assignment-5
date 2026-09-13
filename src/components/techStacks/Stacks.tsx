@@ -1,6 +1,8 @@
 import type { Dispatch, SetStateAction } from "react";
 import type { ITechs } from "../../types/techs";
 import { MdDeleteOutline } from "react-icons/md";
+import { toast } from "react-toastify";
+
 
 interface StacksProps {
     stack: ITechs[];
@@ -13,11 +15,15 @@ const Stacks = ({ stack, setStack }: StacksProps) => {
     }
 
     const handleItemDelete = (id: number) => {
-        setStack((prev) => prev.filter((item) => item.id !== id))
+        const exist = stack.find(item => item.id === id); 
+        toast.error(`${exist?.title} has been Remove.`)
+        setStack((prev) => prev.filter((item) => item.id !== id)); 
+        
     }
 
     const handleAllRemove = () => {
         setStack([]); 
+        toast.error('All Stack has been Remove.')
     }
 
     return (
