@@ -2,7 +2,7 @@ import BannerImage from '../assets/banner-stack.png';
 
 const Banner = () => {
     return (
-        <div className='container mx-auto px-4 py-12 md:py-20'>
+        <div className='container mx-auto '>
             <div className='flex flex-col-reverse lg:flex-row items-center justify-between gap-10'>
 
                 {/* Left Content */}
@@ -21,7 +21,7 @@ const Banner = () => {
                     </p>
 
                     {/* Buttons */}
-                    <div className='flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8'>
+                    <div className='flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-8 mx-5'>
                         <button className='w-full sm:w-auto brand-gradient text-white px-6 py-3.5 rounded-xl font-medium hover:opacity-90 transition-opacity shadow-sm cursor-pointer'>
                             Explore Technologies
                         </button>

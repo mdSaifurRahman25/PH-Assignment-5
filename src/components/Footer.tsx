@@ -3,11 +3,11 @@ import Logo from '../assets/logo-text.png'
 const Footer = () => {
     return (
         <div className="border-t border-gray-200">
-            <div className='container mx-auto grid grid-cols-12 my-15'>
+            <div className='container mx-auto md:grid md:grid-cols-12 my-15'>
                 {/* left Logo Section */}
-                <div className='col-span-5'>
+                <div className='md:col-span-5 flex flex-col items-center text-center md:items-start md:text-left'>
                     <div className='mb-4'>
-                        <img src={Logo} alt="Website Logo" />
+                        <img className='' src={Logo} alt="Website Logo" />
                     </div>
                     <h5 className='mb-5'>Curated tools, software, and resources for developers building modern software.</h5>
                     <ul className='flex gap-4 font-bold'>
@@ -18,7 +18,7 @@ const Footer = () => {
                 </div>
 
                 {/* Right 3 Link Section */}
-                <div className='col-span-7'>
+                <div className='hidden md:block md:col-span-7'>
                     <div className='grid grid-cols-6'>
                         <div className='col-span-2'>
                             <h5 className='font-bold mb-4'>PRODUCT</h5>
@@ -48,7 +48,7 @@ const Footer = () => {
             </div>
             {/* Additional Footer Bottom */}
             <div className='container mx-auto border-t border-gray-200'>
-                <div className='flex justify-between my-9 text-gray-400'>
+                <div className='flex justify-between my-3 mx-2 md:my-9 text-gray-400'>
                     <div>
                         <p>&copy; 2026 DevStack. All rights reserved.</p>
                     </div>

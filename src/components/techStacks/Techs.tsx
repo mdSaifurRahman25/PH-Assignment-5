@@ -16,15 +16,15 @@ const Techs = ({ techsPromise, stack, setStack }: TechsProps) => {
         <div className="container mx-auto grid grid-cols-12 gap-8 items-start my-10">
 
             <div className="col-span-12 lg:col-span-8">
-                <h2 className="text-4xl font-bold">
+                <h2 className="text-3xl text-center md:text-left md:text-4xl font-bold">
                     Explore the <span className="text-[#CE4EB6]">Technologies</span>
                 </h2>
-                <p className="text-gray-500 text-lg mt-2">
+                <p className="text-gray-500 text-lg mt-2 md:text-left text-center mx-2">
                     Pick one technology per category to build your ideal stack.
                 </p>
 
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-8">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mt-8 mx-5 md:mx-0">
                     {techs.map((tech) => (
                         <TechCard
                             key={tech.id}

@@ -44,7 +44,7 @@ const Navbar = () => {
                         text-gray-600 font-medium transition-all duration-300 ease-in-out
                         ${isOpen ? 'top-[65px] opacity-100 visible' : '-top-96 opacity-0 invisible md:opacity-100 md:visible md:top-auto'}
                     `}>
-                        <li className='cursor-pointer hover:text-[#E51E7E]'>Home</li>
+                        <li className='text-[#E51E7E] cursor-pointer hover:text-[#E51E7E]'>Home</li>
                         <li className='hover:text-[#E51E7E] cursor-pointer'>Technologies</li>
                         <li className='hover:text-[#E51E7E] cursor-pointer'>Projects</li>
                         <li className='hover:text-[#E51E7E] cursor-pointer'>About</li>
